@@ -1,0 +1,289 @@
+{
+  "conference": {
+    "name": "Google Cloud Technical Summit 2026",
+    "theme": "Engineering the Future with Cloud & AI",
+    "date": "October 24, 2026",
+    "location": "Google Cloud Tech Center, San Francisco & Global Virtual Stream",
+    "timeZone": "PST (UTC-8)",
+    "description": "A premiere 1-day technical conference dedicated to deep dives into Google Cloud architecture, generative AI, serverless engineering, high-scale data analytics, and modern cloud security."
+  },
+  "schedule": [
+    {
+      "id": "talk-1",
+      "type": "talk",
+      "time": "09:00 AM - 09:45 AM",
+      "startTime": "09:00",
+      "endTime": "09:45",
+      "durationMinutes": 45,
+      "title": "Keynote: Next-Gen GenAI Applications with Vertex AI & Gemini 1.5 Pro",
+      "categories": ["AI & Machine Learning", "Cloud Architecture"],
+      "description": "Explore how enterprise engineering teams leverage Google Vertex AI and Gemini models to build resilient, multimodal AI systems with RAG architectures, dynamic function calling, and sub-second latency.",
+      "speakers": [
+        {
+          "id": "speaker-1",
+          "firstName": "Aris",
+          "lastName": "Thorne",
+          "role": "Distinguished AI Engineer",
+          "company": "Google Cloud",
+          "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/aris-thorne-ai"
+        },
+        {
+          "id": "speaker-2",
+          "firstName": "Elena",
+          "lastName": "Rostova",
+          "role": "Principal AI Systems Architect",
+          "company": "DeepCloud Systems",
+          "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/elena-rostova-tech"
+        }
+      ]
+    },
+    {
+      "id": "talk-2",
+      "type": "talk",
+      "time": "09:50 AM - 10:35 AM",
+      "startTime": "09:50",
+      "endTime": "10:35",
+      "durationMinutes": 45,
+      "title": "Scaling Serverless Microservices with Cloud Run & Eventarc",
+      "categories": ["Serverless", "DevOps"],
+      "description": "Learn modern patterns for building zero-idle cost microservices using Cloud Run v2, custom sidecars, gRPC streaming, and event orchestration via Eventarc triggers.",
+      "speakers": [
+        {
+          "id": "speaker-3",
+          "firstName": "Marcus",
+          "lastName": "Vance",
+          "role": "Staff Cloud Infrastructure Engineer",
+          "company": "ScaleTech Labs",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/marcus-vance-cloud"
+        }
+      ]
+    },
+    {
+      "id": "talk-3",
+      "type": "talk",
+      "time": "10:40 AM - 11:25 AM",
+      "startTime": "10:40",
+      "endTime": "11:25",
+      "durationMinutes": 45,
+      "title": "Petabyte-Scale Real-Time Analytics using BigQuery & BigFrames",
+      "categories": ["Data & Analytics", "AI & Machine Learning"],
+      "description": "Uncover advanced techniques for combining SQL analytics with Pandas-style DataFrames directly inside BigQuery using BigFrames and BigQuery ML for real-time predictive insights.",
+      "speakers": [
+        {
+          "id": "speaker-4",
+          "firstName": "Sophia",
+          "lastName": "Chen",
+          "role": "Lead Data Architect",
+          "company": "DataPulse Analytics",
+          "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/sophia-chen-data"
+        },
+        {
+          "id": "speaker-5",
+          "firstName": "David",
+          "lastName": "Miller",
+          "role": "Senior Analytics Engineer",
+          "company": "Google Cloud Partner Engineering",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/david-miller-bq"
+        }
+      ]
+    },
+    {
+      "id": "talk-4",
+      "type": "talk",
+      "time": "11:30 AM - 12:15 PM",
+      "startTime": "11:30",
+      "endTime": "12:15",
+      "durationMinutes": 45,
+      "title": "Zero-Trust Cloud Security & IAM Governance Best Practices",
+      "categories": ["Security & Governance"],
+      "description": "Deep dive into Cloud IAM policy intelligence, Workload Identity Federation, VPC Service Controls, and automated security posture management in multi-tenant environments.",
+      "speakers": [
+        {
+          "id": "speaker-6",
+          "firstName": "Amara",
+          "lastName": "Okafor",
+          "role": "Chief Cloud Security Officer",
+          "company": "SecureNet Global",
+          "avatar": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/amara-okafor-sec"
+        }
+      ]
+    },
+    {
+      "id": "break-1",
+      "type": "break",
+      "time": "12:30 PM - 01:30 PM",
+      "startTime": "12:30",
+      "endTime": "13:30",
+      "durationMinutes": 60,
+      "title": "Networking & Complimentary Lunch Break",
+      "categories": ["Event Break"],
+      "description": "Enjoy a 60-minute gourmet networking lunch! Meet fellow Google Cloud developers, explore live partner demo booths, and participate in technical lightning round Q&As.",
+      "speakers": []
+    },
+    {
+      "id": "talk-5",
+      "type": "talk",
+      "time": "01:30 PM - 02:15 PM",
+      "startTime": "13:30",
+      "endTime": "14:15",
+      "durationMinutes": 45,
+      "title": "High-Availability Global Relational Databases with Cloud Spanner",
+      "categories": ["Database", "Cloud Architecture"],
+      "description": "Discover how Cloud Spanner delivers five 9s availability (99.999%), global consistency, and transparent sharding for mission-critical transactional enterprise applications.",
+      "speakers": [
+        {
+          "id": "speaker-7",
+          "firstName": "Hiroshi",
+          "lastName": "Tanaka",
+          "role": "Database Infrastructure Lead",
+          "company": "Apex Global Financial",
+          "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/hiroshi-tanaka-db"
+        }
+      ]
+    },
+    {
+      "id": "talk-6",
+      "type": "talk",
+      "time": "02:20 PM - 03:05 PM",
+      "startTime": "14:20",
+      "endTime": "15:05",
+      "durationMinutes": 45,
+      "title": "Production Kubernetes Engineering: Autopilot & Multi-Cluster GKE",
+      "categories": ["Containers & Kubernetes", "DevOps"],
+      "description": "Practical lessons on configuring GKE Autopilot, spot pod autoscaling, multi-cluster ingress, gateway API routing, and cost optimization at scale.",
+      "speakers": [
+        {
+          "id": "speaker-8",
+          "firstName": "Priya",
+          "lastName": "Sharma",
+          "role": "Staff Site Reliability Engineer",
+          "company": "KubeCloud Inc.",
+          "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/priya-sharma-gke"
+        },
+        {
+          "id": "speaker-9",
+          "firstName": "Lucas",
+          "lastName": "Silva",
+          "role": "Principal DevOps Architect",
+          "company": "CloudNative Solutions",
+          "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/lucas-silva-devops"
+        }
+      ]
+    },
+    {
+      "id": "talk-7",
+      "type": "talk",
+      "time": "03:10 PM - 03:55 PM",
+      "startTime": "15:10",
+      "endTime": "15:55",
+      "durationMinutes": 45,
+      "title": "Hybrid & Multi-Cloud Infrastructure Optimization with Google Anthos",
+      "categories": ["Cloud Architecture"],
+      "description": "Architecting multi-cloud workload portability and policy enforcement across on-premise data centers, GCP, and edge clusters with Anthos Service Mesh.",
+      "speakers": [
+        {
+          "id": "speaker-10",
+          "firstName": "Rachel",
+          "lastName": "Green",
+          "role": "Director of Cloud Strategy",
+          "company": "OmniCloud Enterprise",
+          "avatar": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/rachel-green-cloud"
+        }
+      ]
+    },
+    {
+      "id": "talk-8",
+      "type": "talk",
+      "time": "04:00 PM - 04:45 PM",
+      "startTime": "16:00",
+      "endTime": "16:45",
+      "durationMinutes": 45,
+      "title": "Building High-Throughput Event-Driven Pipelines with Pub/Sub & Dataflow",
+      "categories": ["Data & Analytics", "Serverless"],
+      "description": "Design end-to-end streaming data processing pipelines using Apache Beam on Google Cloud Dataflow, with exact-once processing semantics and Pub/Sub dead-letter queues.",
+      "speakers": [
+        {
+          "id": "speaker-11",
+          "firstName": "Alex",
+          "lastName": "Mercer",
+          "role": "Principal Streaming Data Engineer",
+          "company": "StreamScale",
+          "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/alex-mercer-stream"
+        },
+        {
+          "id": "speaker-12",
+          "firstName": "Kenji",
+          "lastName": "Sato",
+          "role": "Lead Cloud Backend Architect",
+          "company": "Tokyo Data Labs",
+          "avatar": "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/kenji-sato-backend"
+        }
+      ]
+    },
+    {
+      "id": "talk-9",
+      "type": "talk",
+      "time": "04:50 PM - 05:35 PM",
+      "startTime": "16:50",
+      "endTime": "17:35",
+      "durationMinutes": 45,
+      "title": "FinOps & Cost Optimization at Scale with Cloud Billing & Recommender",
+      "categories": ["Cloud Architecture", "Security & Governance"],
+      "description": "Learn automated strategies for optimizing GCP spending using Committed Use Discounts (CUDs), Custom Billing Export, Recommender APIs, and automated resource lifecycle management.",
+      "speakers": [
+        {
+          "id": "speaker-13",
+          "firstName": "Nina",
+          "lastName": "Patel",
+          "role": "Principal FinOps Engineer",
+          "company": "CloudEconomy",
+          "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/nina-patel-finops"
+        },
+        {
+          "id": "speaker-14",
+          "firstName": "Liam",
+          "lastName": "O'Connor",
+          "role": "Cloud Optimization Strategist",
+          "company": "Google Cloud",
+          "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/liam-oconnor-gcp"
+        }
+      ]
+    },
+    {
+      "id": "talk-10",
+      "type": "talk",
+      "time": "05:40 PM - 06:25 PM",
+      "startTime": "17:40",
+      "endTime": "18:25",
+      "durationMinutes": 45,
+      "title": "Building Resilient MLOps Pipelines with Cloud Workflows & Vertex AI Pipelines",
+      "categories": ["AI & Machine Learning", "Serverless"],
+      "description": "Deep dive into orchestrating complex machine learning workflows using Kubeflow Pipelines on Vertex AI, automated model evaluation, and artifact tracking.",
+      "speakers": [
+        {
+          "id": "speaker-15",
+          "firstName": "Carlos",
+          "lastName": "Rodriguez",
+          "role": "Staff MLOps Architect",
+          "company": "AI Infra Solutions",
+          "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          "linkedin": "https://www.linkedin.com/in/carlos-rodriguez-mlops"
+        }
+      ]
+    }
+  ]
+}
