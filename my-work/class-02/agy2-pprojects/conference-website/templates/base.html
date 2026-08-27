@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ conference.name }} - {{ conference.tagline }}{% endblock %}</title>
+    <meta name="description" content="{{ conference.description }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Top Announcement Bar with Current Date & Time -->
+    <aside class="top-announcement-bar" aria-label="Conference Announcement">
+        <div class="container announcement-inner">
+            <div class="date-live-badge">
+                <span class="live-pulse"></span>
+                <span class="date-label"><i class="fa-regular fa-calendar-check"></i> Today: <strong>{{ current_date_formatted }}</strong></span>
+                <span class="time-label"><i class="fa-regular fa-clock"></i> {{ current_time_formatted }}</span>
+            </div>
+            <div class="announcement-meta">
+                <span class="meta-tag"><i class="fa-solid fa-location-dot"></i> {{ conference.location }}</span>
+                <span class="badge-accent">1-Day Technical Summit</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="navbar">
+        <div class="container header-container">
+            <a href="/" class="brand-logo">
+                <div class="google-cloud-icon-group">
+                    <span class="dot dot-blue"></span>
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">{{ conference.name }}</span>
+                    <span class="brand-subtitle">Google Cloud Technologies</span>
+                </div>
+            </a>
+
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <ul class="nav-links">
+                    <li><a href="/#schedule" class="nav-link"><i class="fa-solid fa-list-check"></i> Timetable</a></li>
+                    <li><a href="/#talks" class="nav-link"><i class="fa-solid fa-microphone-lines"></i> Talks (8)</a></li>
+                    <li><a href="/#speakers" class="nav-link"><i class="fa-solid fa-users"></i> Speakers</a></li>
+                    <li><a href="/#venue" class="nav-link"><i class="fa-solid fa-map-pin"></i> Venue & Date</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#talks" class="btn btn-primary btn-sm"><i class="fa-solid fa-magnifying-glass"></i> Explore Talks</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="google-cloud-icon-group">
+                    <span class="dot dot-blue"></span>
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <h3>{{ conference.name }}</h3>
+                <p>{{ conference.tagline }}</p>
+                <p class="footer-desc">{{ conference.description }}</p>
+            </div>
+            <div class="footer-links-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/#schedule"><i class="fa-solid fa-chevron-right"></i> Full Day Schedule</a></li>
+                    <li><a href="/#talks"><i class="fa-solid fa-chevron-right"></i> 8 Technical Talks</a></li>
+                    <li><a href="/#speakers"><i class="fa-solid fa-chevron-right"></i> Featured Speakers</a></li>
+                    <li><a href="/#venue"><i class="fa-solid fa-chevron-right"></i> Location & Travel</a></li>
+                    <li><a href="/api/talks" target="_blank"><i class="fa-solid fa-code"></i> Talks JSON API</a></li>
+                </ul>
+            </div>
+            <div class="footer-meta-col">
+                <h4>Event Details</h4>
+                <p><i class="fa-regular fa-calendar"></i> <strong>Date:</strong> {{ conference.date_display }}</p>
+                <p><i class="fa-solid fa-clock"></i> <strong>Hours:</strong> 08:00 AM - 05:30 PM</p>
+                <p><i class="fa-solid fa-utensils"></i> <strong>Lunch:</strong> 12:15 PM - 01:15 PM (60 Mins)</p>
+                <p><i class="fa-solid fa-location-dot"></i> <strong>Venue:</strong> {{ conference.address }}</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>&copy; {{ current_year }} {{ conference.name }}. All rights reserved. Powered by Python & Flask.</p>
+                <p class="built-with">Engineered for Google Cloud Developers & Architects</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Talk Details Modal -->
+    <dialog id="talk-modal" class="modal-dialog" aria-labelledby="modal-talk-title">
+        <div class="modal-card">
+            <header class="modal-header">
+                <div class="modal-category-badges" id="modal-categories"></div>
+                <button type="button" class="btn-close-modal" id="btn-close-modal" aria-label="Close dialog">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </header>
+            <div class="modal-body">
+                <div class="modal-time-slot" id="modal-time"></div>
+                <h2 id="modal-talk-title" class="modal-title"></h2>
+                <div class="modal-room-info" id="modal-room"></div>
+                <div class="modal-description-box">
+                    <h3>Session Overview</h3>
+                    <p id="modal-description"></p>
+                </div>
+                <div class="modal-speakers-section">
+                    <h3>Featured Speaker(s)</h3>
+                    <div id="modal-speakers-list" class="modal-speakers-grid"></div>
+                </div>
+            </div>
+            <footer class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="btn-modal-close-footer">Close</button>
+                <a id="modal-permalink" href="#" class="btn btn-primary">Open Dedicated Page</a>
+            </footer>
+        </div>
+    </dialog>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

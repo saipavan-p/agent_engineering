@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}{{ talk.title }} - {{ conference.name }}{% endblock %}
+
+{% block content %}
+<section class="talk-detail-hero">
+    <div class="container">
+        <a href="/#talks" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to All Talks</a>
+        
+        <div class="talk-detail-header-card">
+            <div class="detail-badge-bar">
+                <span class="talk-id-tag">{{ talk.id|upper }}</span>
+                <span class="detail-time-badge"><i class="fa-regular fa-clock"></i> {{ talk.time }}</span>
+                <span class="detail-room-badge"><i class="fa-solid fa-location-dot"></i> {{ talk.room }}</span>
+                <span class="detail-level-badge"><i class="fa-solid fa-signal"></i> {{ talk.level }}</span>
+            </div>
+
+            <div class="detail-categories">
+                {% for cat in talk.categories %}
+                <span class="category-badge">{{ cat }}</span>
+                {% endfor %}
+            </div>
+
+            <h1 class="talk-detail-title">{{ talk.title }}</h1>
+        </div>
+    </div>
+</section>
+
+<section class="talk-detail-body-section">
+    <div class="container">
+        <div class="talk-detail-layout">
+            <div class="talk-main-column">
+                <div class="content-block">
+                    <h2><i class="fa-solid fa-align-left"></i> Session Abstract</h2>
+                    <p class="lead-text">{{ talk.description }}</p>
+                </div>
+
+                <div class="content-block">
+                    <h2><i class="fa-solid fa-lightbulb"></i> What You'll Learn</h2>
+                    <ul class="key-takeaways-list">
+                        <li>Architectural best practices for production enterprise deployments on Google Cloud.</li>
+                        <li>Real-world code patterns, configuration samples, and optimization trade-offs.</li>
+                        <li>Integration guidelines with Google Cloud ecosystem tools and monitoring observability.</li>
+                        <li>Security, governance, and cost-efficiency considerations at scale.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="talk-sidebar-column">
+                <div class="sidebar-card">
+                    <h3><i class="fa-solid fa-user-tie"></i> Session Speaker(s)</h3>
+                    <div class="detail-speakers-list">
+                        {% for sp in talk.speakers %}
+                        <div class="detail-speaker-card">
+                            <div class="detail-speaker-avatar" style="background-color: {{ sp.avatar_color }};">
+                                {{ sp.first_name[0] }}{{ sp.last_name[0] }}
+                            </div>
+                            <div class="detail-speaker-meta">
+                                <h4>{{ sp.first_name }} {{ sp.last_name }}</h4>
+                                <p class="detail-speaker-title">{{ sp.role }}</p>
+                                <p class="detail-speaker-org"><i class="fa-solid fa-building"></i> {{ sp.company }}</p>
+                                <p class="detail-speaker-bio">{{ sp.bio }}</p>
+                                <a 
+                                    href="{{ sp.linkedin_url }}" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    class="btn btn-linkedin btn-sm"
+                                >
+                                    <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="sidebar-card event-reminder-card">
+                    <h3><i class="fa-regular fa-calendar-check"></i> Event Details</h3>
+                    <p><strong>Date:</strong> {{ conference.date_display }}</p>
+                    <p><strong>Location:</strong> {{ conference.location }}</p>
+                    <p><strong>Lunch Break:</strong> 12:15 PM - 01:15 PM (60 Mins)</p>
+                    <a href="/#schedule" class="btn btn-outline btn-block"><i class="fa-solid fa-list-check"></i> View Full Schedule</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+{% endblock %}

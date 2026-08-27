@@ -1,96 +1,50 @@
-# ☁️ Google Cloud Technical Summit 2026
+# CloudNext Horizon 2026: 1-Day Technical Conference Website
 
-A modern, high-performance, 1-day technical conference web application built with **Python & Flask** on the backend and **HTML5, CSS3, and JavaScript** on the frontend. 
+An informational website for **CloudNext Horizon 2026: Google Cloud & AI Summit**, a premier 1-day technical conference focused on cutting-edge Google Cloud technologies (Vertex AI, Gemini, BigQuery, GKE Autopilot, SAIF Zero Trust Security, Cloud Run, Cloud Spanner, and Cloud TPU v5e).
 
-The website showcases an interactive schedule of 8 in-depth technical talks on Google Cloud technologies, speaker profiles with LinkedIn integration, category & speaker search filtering, view layout toggles, and a 60-minute networking lunch break.
-
----
-
-## 🌟 Key Features
-
-1. **Interactive Conference Homepage**:
-   - Live header clock and event banner.
-   - Displays event date (**October 24, 2026**), location (**Google Cloud Tech Center, San Francisco & Virtual Stream**), and theme.
-   - Quick event statistics (8 Technical Talks, 12 Speakers, 60-min Lunch Break).
-
-2. **8 Google Cloud Technical Talks**:
-   - Covering Vertex AI, BigQuery ML, GKE Autopilot, Cloud Run, Cloud Spanner, Cloud Security & IAM, Eventarc, and Anthos.
-   - Each talk features an ID, Title, Category (1-2 max), Description, and Time slot.
-
-3. **Speaker Profiles (1-2 Max per Talk)**:
-   - Each talk features 1 or 2 speakers.
-   - Complete speaker metadata: First Name, Last Name, Role, Company, Avatar Image, and **LinkedIn profile link**.
-
-4. **Multi-Parameter Real-Time Search & Filtering**:
-   - **Text Search**: Search by talk title, description, or speaker name.
-   - **Category Filter**: Instant filtering by technical domain (e.g. *AI & Machine Learning*, *Serverless*, *Containers & Kubernetes*, *Database*, *Security & Governance*).
-   - **Speaker Filter**: Dropdown selection to filter talks by specific speaker.
-   - **Reset Filters**: One-click filter reset.
-
-5. **60-Minute Networking & Lunch Break**:
-   - Mid-day scheduled break (**12:30 PM - 01:30 PM**) with distinct visual highlight.
-
-6. **View Layout Switcher & Bookmarking**:
-   - Toggle between **Timeline View** (chronological vertical schedule) and **Grid View** (responsive multi-column layout).
-   - Bookmark sessions to personal schedule (persisted via browser `localStorage`).
-
-7. **Session Details Modal**:
-   - Click any session card to open a full modal window with detailed overview, speaker bios, and LinkedIn connection links.
+Built with **Python & Flask** on the backend and **vanilla HTML5, CSS3, and JavaScript** on the frontend.
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Feature Overview & Requirements Verification
 
-- **Backend**: Python 3.9+, Flask framework.
-- **Frontend**: HTML5, Vanilla CSS3 (Custom Dark Mode Tech Theme, Glassmorphism, CSS Grid & Flexbox), Vanilla JavaScript (ES6+, Fetch API).
-- **Icons & Fonts**: FontAwesome 6, Google Fonts (*Plus Jakarta Sans*, *JetBrains Mono*).
-- **Testing**: Python `unittest` framework.
-
----
-
-## 📁 Directory Structure
-
-```
-conference-website/
-├── app.py                      # Main Flask web server & REST API
-├── data/
-│   └── conference_data.json    # Conference, talks, break, and speaker dataset
-├── static/
-│   ├── css/
-│   │   └── styles.css          # Master stylesheet (dark theme & responsive design)
-│   └── js/
-│       └── app.js              # Real-time search, filtering, view toggle & modal logic
-├── templates/
-│   └── index.html              # HTML5 Jinja template for conference homepage
-├── tests/
-│   └── test_app.py             # Automated unit tests for all requirements
-├── requirements.txt            # Python dependencies (flask, pytest)
-└── README.md                   # Setup, execution, and development guide
-```
+| # | Requirement | Implementation Details |
+|---|---|---|
+| 1 | **Home Page with Date, Location & Schedule** | Displays current live date/time, conference date (`Saturday, October 24, 2026`), venue (`Google Bay View Campus, Mountain View, CA`), and complete 1-day timetable. |
+| 2 | **8 Technical Talks** | Exactly 8 curated talks covering major Google Cloud platforms and architectures. |
+| 3 | **1 or 2 Max Speakers per Talk** | Strictly enforced 1–2 speakers per session with titles, organizations, and bios. |
+| 4 | **Talk Fields** | Every talk contains an `ID`, `Title`, `Speakers`, `Category (1 or 2)`, `Description`, and `Time`. |
+| 5 | **Speaker Fields** | Every speaker has `First Name`, `Last Name`, and a verified `LinkedIn URL` with direct link buttons. |
+| 6 | **Multi-Criteria Search & Filter** | Instant real-time filtering by **Category** (pill selector), **Speaker** (dropdown/search), and **Title/Keyword** (live search bar). |
+| 7 | **60-Minute Lunch Break** | Prominently highlighted in the schedule (`12:15 PM - 01:15 PM`, 60 mins) with buffet and networking details. |
+| 8 | **Google Cloud Technologies Dummy Data** | Realistic sessions on Gemini 1.5 Pro, BigQuery + Iceberg, GKE Autopilot, SAIF, Cloud Run, Spanner, Vertex AI Pipelines, and Cloud TPUs. |
+| 9 | **Python & Flask + Vanilla Frontend** | Clean architecture with Flask server, Jinja2 templates, modern responsive CSS, and dynamic JavaScript. |
+| 10 | **Automated Tests & Documentation** | 12 automated unit and integration tests passing in Pytest, plus this detailed README. |
+| 11 | **Live Server Ready** | Runs locally with Flask server. |
 
 ---
 
-## 🚀 Setup & Installation Guide
+## 🚀 Quick Start Guide
 
 ### Prerequisites
-- Python 3.9 or higher installed on your system.
-- `pip` (Python package manager).
+- Python 3.10 or higher
+- `pip` (Python package manager)
 
 ### 1. Clone or Navigate to the Project Directory
 ```bash
-cd /Users/pillasaipavan/Documents/PYprojects/GDG/agy2-pprojects/conference-website
+cd conference-website
 ```
 
 ### 2. Create and Activate a Virtual Environment
 ```bash
 # Create virtual environment
-python3 -m venv venv
+python3 -m venv .venv
 
-# Activate virtual environment (macOS/Linux)
-source venv/bin/activate
+# Activate on macOS / Linux:
+source .venv/bin/activate
 
-# Activate virtual environment (Windows)
-# venv\Scripts\activate
+# Or activate on Windows (PowerShell / Command Prompt):
+# .venv\Scripts\Activate.ps1
 ```
 
 ### 3. Install Dependencies
@@ -98,105 +52,134 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### 4. Run the Flask Web Application
+```bash
+python3 app.py
+```
+*The web server will start at: **http://127.0.0.1:5050***
+
+Open your web browser and navigate to `http://127.0.0.1:5050` to explore the site!
+
 ---
 
-## 🏃 How to Run the Web Application
+## 🧪 Running Automated Tests
 
-### Launch Server
-Run the Flask app using Python:
+Run the test suite using `pytest`:
 
 ```bash
-python app.py
+# Run all tests
+pytest -v
+
+# Run with coverage report (optional)
+pytest -v tests/test_app.py
 ```
 
-By default, the application will launch at:
-👉 **[http://127.0.0.1:5000](http://127.0.0.1:5000)**
-
-You can open this URL in any browser to review and interact with the website.
+### Test Suite Coverage:
+- `test_home_page_status_and_content`: Checks 200 OK response and key elements (date, location, schedule).
+- `test_exact_talk_count`: Verifies exactly 8 talks exist.
+- `test_speaker_count_constraint`: Verifies 1 to 2 speakers max per talk.
+- `test_talk_required_fields`: Checks `id`, `title`, `speakers`, `categories` (1-2), `description`, `time`.
+- `test_speaker_required_fields`: Checks `first_name`, `last_name`, `linkedin_url` format.
+- `test_lunch_break_duration`: Verifies the 60-minute lunch break.
+- `test_google_cloud_theme_content`: Confirms GCP topics (Vertex AI, BigQuery, GKE, Spanner, etc.).
+- `test_search_and_filter_logic`: Tests category, speaker, and keyword query filters.
+- `test_api_talks_endpoint`: Validates REST API responses and URL query parameters.
+- `test_api_single_talk_and_404`: Validates individual talk lookup and error handling.
+- `test_api_speakers_and_schedule`: Tests speakers directory and timetable APIs.
+- `test_talk_detail_route`: Tests individual server-rendered detail pages.
 
 ---
 
-## 🧪 Running Automated Unit Tests
+## 📁 Project Directory Layout
 
-The project includes a comprehensive test suite in `tests/test_app.py` verifying all 10 conference functionality requirements.
+```
+conference-website/
+├── app.py                  # Main Flask application and API route controllers
+├── data.py                 # Structured conference dataset (talks, speakers, schedule)
+├── requirements.txt        # Python dependencies (Flask, Pytest)
+├── pytest.ini              # Pytest configuration
+├── README.md               # Project documentation & setup guide
+├── static/
+│   ├── css/
+│   │   └── style.css       # Google Cloud themed responsive stylesheet
+│   └── js/
+│       └── app.js          # Live search engine, modal dialog, and schedule bookmarking
+├── templates/
+│   ├── base.html           # Base layout with header, date badge, modal, footer
+│   ├── index.html          # Main home page (hero, search, talks grid, timeline, speakers)
+│   ├── talk_detail.html    # Standalone talk abstract and speaker page
+│   ├── 404.html            # Custom 404 Not Found page
+│   └── 500.html            # Custom 500 Server Error page
+└── tests/
+    └── test_app.py         # 12 Pytest test cases validating all constraints
+```
 
-To run the tests:
+---
 
+## 📡 REST API Reference
+
+The server exposes JSON endpoints for integrations or client-side consumption:
+
+| Endpoint | Method | Query Parameters | Description |
+|---|---|---|---|
+| `/api/talks` | `GET` | `q`, `category`, `speaker` | Returns list of talks filtered by keyword, category, or speaker name. |
+| `/api/talks/<talk_id>` | `GET` | - | Returns detailed JSON for a single talk (e.g. `/api/talks/talk-1`). |
+| `/api/speakers` | `GET` | - | Returns all unique conference speakers with LinkedIn profiles and talk IDs. |
+| `/api/schedule` | `GET` | - | Returns the full 1-day chronological timetable including breaks & lunch. |
+
+### Example API Request:
 ```bash
-python -m unittest discover -s tests
+curl -s "http://127.0.0.1:5050/api/talks?category=Generative%20AI" | python3 -m json.tool
 ```
-
-### Test Coverage Summary:
-- `test_homepage_loads`: Verifies homepage returns HTTP 200 and renders conference header.
-- `test_total_talks_count`: Verifies exact count of 8 technical talks.
-- `test_speakers_per_talk_limit`: Enforces max 1 or 2 speakers per talk.
-- `test_talk_attributes`: Checks ID, Title, Speakers, Categories (1-2), Description, and Time attributes.
-- `test_speaker_attributes`: Checks First Name, Last Name, and LinkedIn URL format for all speakers.
-- `test_lunch_break_duration`: Verifies 60-minute lunch break inclusion.
-- `test_search_by_category`: Tests category search API `/api/talks?category=...`.
-- `test_search_by_speaker`: Tests speaker search API `/api/talks?q=...`.
-- `test_search_by_title`: Tests title search API `/api/talks?q=...`.
 
 ---
 
-## 📡 REST API Documentation
+## 🛠️ How to Customize or Add Content
 
-The application exposes JSON API endpoints for dynamic frontend interaction:
+All conference schedule, speaker, and session data is decoupled into [`data.py`](data.py).
 
-| Endpoint | Method | Description | Query Parameters |
-| :--- | :--- | :--- | :--- |
-| `/api/talks` | `GET` | Retrieve schedule items | `q` (search string), `category` (category name), `speaker` (speaker ID), `include_breaks` (boolean) |
-| `/api/talks/<talk_id>` | `GET` | Get single talk detail payload | None |
-| `/api/categories` | `GET` | Get list of all distinct categories & talk counts | None |
-| `/api/speakers` | `GET` | Get list of all speakers | None |
-
-#### Sample API Response (`GET /api/talks/talk-1`):
-```json
+### To add or edit a talk:
+Open `data.py` and modify the `TALKS` list:
+```python
 {
-  "status": "success",
-  "data": {
-    "id": "talk-1",
-    "type": "talk",
-    "time": "09:00 AM - 09:45 AM",
-    "durationMinutes": 45,
-    "title": "Keynote: Next-Gen GenAI Applications with Vertex AI & Gemini 1.5 Pro",
-    "categories": ["AI & Machine Learning", "Cloud Architecture"],
-    "description": "Explore how enterprise engineering teams leverage Google Vertex AI...",
+    "id": "talk-9",
+    "title": "Your Custom Talk Title",
+    "time": "04:30 PM - 05:15 PM",
+    "start_time": "16:30",
+    "end_time": "17:15",
+    "categories": ["Generative AI", "Cloud Architecture & DevOps"],  # 1 or 2 categories
+    "description": "Your talk abstract here...",
+    "room": "Hall B",
+    "level": "Advanced",
     "speakers": [
-      {
-        "id": "speaker-1",
-        "firstName": "Aris",
-        "lastName": "Thorne",
-        "role": "Distinguished AI Engineer",
-        "company": "Google Cloud",
-        "linkedin": "https://www.linkedin.com/in/aris-thorne-ai"
-      }
+        {
+            "first_name": "Alex",
+            "last_name": "Taylor",
+            "linkedin_url": "https://www.linkedin.com/in/alex-taylor",
+            "role": "Staff Cloud Architect",
+            "company": "Google Cloud",
+            "avatar_color": "#1a73e8",
+            "bio": "Bio description here..."
+        }
     ]
-  }
+}
+```
+
+### To change conference metadata (date, venue, address):
+Modify `CONFERENCE_INFO` in `data.py`:
+```python
+CONFERENCE_INFO = {
+    "name": "CloudNext Horizon 2026",
+    "date_display": "Saturday, October 24, 2026",
+    "location": "Google Bay View Campus, Mountain View, CA",
+    # ...
 }
 ```
 
 ---
 
-## 🔧 How to Make Further Changes & Extensions
-
-### 1. Adding or Modifying Talks / Speakers
-All schedule data is stored cleanly in `data/conference_data.json`.
-To add a new talk or edit speaker details, edit `data/conference_data.json`:
-- To change speaker LinkedIn URLs, update the `"linkedin"` string inside `"speakers"`.
-- To update talk times or categories, update `"time"` and `"categories"`.
-
-### 2. Customizing Frontend Styling
-The UI styles are controlled by CSS custom properties (tokens) in `static/css/styles.css`:
-- **Theme Colors**: Modify `:root` variables `--gcloud-blue`, `--bg-main`, `--bg-card`.
-- **Break Card Styling**: Modify `.break-card` for lunch break color accents.
-
-### 3. Customizing Frontend Behaviors
-Modify `static/js/app.js`:
-- To adjust real-time search debounce or animation timings.
-- To add local storage synchronization or export schedule feature.
-
----
-
-## 📜 License
-Built for demonstration of Google Cloud Technical Conference event management.
+## 🎨 UI & Design Features
+- **Google Cloud Brand System**: Authentic color palette with Google Blue (`#1a73e8`), Red (`#ea4335`), Yellow (`#fbbc04`), and Green (`#34a853`).
+- **Interactive Modals**: Accessible `<dialog>` modal with backdrop blur for quick session overviews.
+- **Client-Side "My Schedule"**: Attendees can bookmark talks using the favorite icon (persisted in `localStorage`).
+- **Fully Responsive**: Mobile-first responsive design for phones, tablets, and desktop displays.

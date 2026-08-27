@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found - {{ conference.name }}{% endblock %}
+
+{% block content %}
+<section class="error-section">
+    <div class="container error-container">
+        <div class="error-icon"><i class="fa-solid fa-cloud-moon"></i></div>
+        <h1 class="error-code">404</h1>
+        <h2 class="error-heading">Talk or Page Not Found</h2>
+        <p class="error-message">The session or page you are looking for does not exist in the CloudNext Horizon schedule.</p>
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary"><i class="fa-solid fa-house"></i> Return to Summit Home</a>
+            <a href="/#talks" class="btn btn-outline"><i class="fa-solid fa-microphone"></i> View 8 Talks</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

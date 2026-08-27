@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error - {{ conference.name }}{% endblock %}
+
+{% block content %}
+<section class="error-section">
+    <div class="container error-container">
+        <div class="error-icon error-icon-500"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <h1 class="error-code">500</h1>
+        <h2 class="error-heading">Internal Server Error</h2>
+        <p class="error-message">An unexpected error occurred while processing your conference query. Please try again.</p>
+        <div class="error-actions">
+            <a href="/" class="btn btn-primary"><i class="fa-solid fa-house"></i> Return to Summit Home</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

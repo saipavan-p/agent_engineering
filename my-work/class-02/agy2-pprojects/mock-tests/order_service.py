@@ -106,11 +106,12 @@ class Order:
         # 3. Process Payment
         try:
             success = self.payment.charge(final_amount, "USD")
-            if not success:
-                raise PaymentFailedError("Transaction declined by gateway")
         except Exception as e:
             # Catching generic network errors from the gateway
             raise PaymentFailedError(f"Payment gateway error: {str(e)}")
+
+        if not success:
+            raise PaymentFailedError("Transaction declined by gateway")
 
         # 4. Decrement Stock (Only occurs if payment succeeded)
         for product_id, data in self.items.items():

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global News Highlights | Executive Briefing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: rgba(17, 24, 39, 0.75);
+      --bg-card-hover: rgba(31, 41, 55, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.5);
+      --text-primary: #f9fafb;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      --accent-indigo: #6366f1;
+      --accent-cyan: #06b6d4;
+      --accent-rose: #f43f5e;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --badge-geopolitics: rgba(99, 102, 241, 0.18);
+      --badge-geopolitics-text: #818cf8;
+      --badge-climate: rgba(6, 182, 212, 0.18);
+      --badge-climate-text: #22d3ee;
+      --badge-legal: rgba(245, 158, 11, 0.18);
+      --badge-legal-text: #fbbf24;
+      --badge-culture: rgba(244, 63, 94, 0.18);
+      --badge-culture-text: #fb7185;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.2);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #f1f5f9;
+      --bg-card: rgba(255, 255, 255, 0.85);
+      --bg-card-hover: #ffffff;
+      --border-color: rgba(0, 0, 0, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.4);
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #94a3b8;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.15);
+      --badge-geopolitics: rgba(99, 102, 241, 0.1);
+      --badge-geopolitics-text: #4f46e5;
+      --badge-climate: rgba(6, 182, 212, 0.12);
+      --badge-climate-text: #0891b2;
+      --badge-legal: rgba(245, 158, 11, 0.12);
+      --badge-legal-text: #d97706;
+      --badge-culture: rgba(244, 63, 94, 0.12);
+      --badge-culture-text: #e11d48;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 2rem;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+
+    .brand-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 30%, #9ca3af 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="light"] .brand-title {
+      background: linear-gradient(135deg, #0f172a 30%, #475569 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .theme-toggle, .btn-action {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+
+    .theme-toggle:hover, .btn-action:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-focus);
+      transform: translateY(-1px);
+    }
+
+    /* Subheader & Stats */
+    .hero-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-lead {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+
+    .stat-pills {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      min-width: 100px;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-num {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-indigo);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Search & Filter Toolbar */
+    .toolbar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.25rem 1rem 3.2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      font-family: inherit;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-indigo);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+
+    .filter-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.55rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .tab-btn.active {
+      background: var(--accent-indigo);
+      color: white;
+      border-color: var(--accent-indigo);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    /* News Grid */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* News Card */
+    .news-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .news-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, transparent);
+      transition: var(--transition);
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+    }
+
+    .news-card[data-category="geopolitics"]::before {
+      background: linear-gradient(90deg, var(--accent-indigo), transparent);
+    }
+
+    .news-card[data-category="climate"]::before {
+      background: linear-gradient(90deg, var(--accent-cyan), transparent);
+    }
+
+    .news-card[data-category="legal"]::before {
+      background: linear-gradient(90deg, var(--accent-amber), transparent);
+    }
+
+    .news-card[data-category="culture"]::before {
+      background: linear-gradient(90deg, var(--accent-rose), transparent);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .badge-geopolitics {
+      background: var(--badge-geopolitics);
+      color: var(--badge-geopolitics-text);
+    }
+
+    .badge-climate {
+      background: var(--badge-climate);
+      color: var(--badge-climate-text);
+    }
+
+    .badge-legal {
+      background: var(--badge-legal);
+      color: var(--badge-legal-text);
+    }
+
+    .badge-culture {
+      background: var(--badge-culture);
+      color: var(--badge-culture-text);
+    }
+
+    .card-meta-icon {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.85rem;
+      line-height: 1.35;
+    }
+
+    .card-body {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-grow: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-indigo);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .card[data-category="climate"] .info-label { color: var(--accent-cyan); }
+    .card[data-category="legal"] .info-label { color: var(--accent-amber); }
+    .card[data-category="culture"] .info-label { color: var(--accent-rose); }
+
+    .info-text {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .alert-box {
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .alert-danger {
+      background: rgba(244, 63, 94, 0.12);
+      color: #fda4af;
+      border-left: 3px solid var(--accent-rose);
+    }
+
+    [data-theme="light"] .alert-danger {
+      color: #be123c;
+    }
+
+    .alert-warning {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fde68a;
+      border-left: 3px solid var(--accent-amber);
+    }
+
+    [data-theme="light"] .alert-warning {
+      color: #b45309;
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.775rem;
+      color: var(--text-muted);
+    }
+
+    .card-source {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1rem;
+      color: var(--text-muted);
+    }
+
+    .empty-state-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="top-bar">
+        <div class="brand">
+          <div class="brand-icon">🌐</div>
+          <div>
+            <h1 class="brand-title">Global News Highlights</h1>
+          </div>
+        </div>
+        <div class="header-controls">
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <span id="themeIcon">☀️</span> <span id="themeText">Light Mode</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-banner">
+        <p class="hero-lead">
+          Detailed executive highlights and top headlines curated directly from <strong>Google News</strong>, covering geopolitics, climate crises, legal matters, and global culture.
+        </p>
+        <div class="stat-pills">
+          <div class="stat-pill">
+            <span class="stat-num" id="totalCount">12</span>
+            <span class="stat-label">Total Stories</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">4</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num" style="color: var(--accent-emerald);">Live</span>
+            <span class="stat-label">Feed Status</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Search headlines, keywords (e.g. NATO, Ontario, floods, trial)..."
+        />
+      </div>
+
+      <div class="filter-tabs" id="filterTabs">
+        <button class="tab-btn active" data-filter="all">🌐 All Stories (12)</button>
+        <button class="tab-btn" data-filter="geopolitics">🌍 Geopolitics (4)</button>
+        <button class="tab-btn" data-filter="climate">🌪️ Climate & Natural (2)</button>
+        <button class="tab-btn" data-filter="legal">🏛️ Politics & Legal (5)</button>
+        <button class="tab-btn" data-filter="culture">🏺 Culture & Heritage (1)</button>
+      </div>
+    </div>
+
+    <!-- News Cards Grid -->
+    <main class="news-grid" id="newsGrid">
+
+      <!-- Story 1 -->
+      <article class="news-card" data-category="geopolitics">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-geopolitics">🌐 Geopolitics</span>
+            <span class="card-meta-icon">🇺🇸 🇨🇦</span>
+          </div>
+          <h2 class="card-title">Trump Signs Executive Order Renaming Lake Ontario to ‘Lake America’</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Escalating the ongoing trade disputes between the U.S. and Canada, President Trump signed an executive order to rename the U.S. portion of Lake Ontario as "Lake America."</p>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Impact</span>
+              <p class="info-text">The move has provoked sharp backlash and confusion from Canadian officials and the public amid heightened bilateral tensions following Canada’s retaliatory tariffs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Executive Order</span>
+          <span>US-Canada Relations</span>
+        </div>
+      </article>
+
+      <!-- Story 2 -->
+      <article class="news-card" data-category="geopolitics">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-geopolitics">🌐 Geopolitics</span>
+            <span class="card-meta-icon">🛡️ 🇷🇺</span>
+          </div>
+          <h2 class="card-title">CIA Director’s Secret Moscow Trip Focused on NATO & Iran Warnings</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Following CIA Director John Ratcliffe’s unannounced visit to Moscow, reporting from the <em>Wall Street Journal</em> and European diplomats indicates the meeting delivered direct warnings to Russian counterparts against expanding strikes toward NATO nations or deepening military cooperation with Iran.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Wall Street Journal / Google News</span>
+          <span>Security & Intelligence</span>
+        </div>
+      </article>
+
+      <!-- Story 3 -->
+      <article class="news-card" data-category="geopolitics">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-geopolitics">🌐 Geopolitics</span>
+            <span class="card-meta-icon">⚓ 🌊</span>
+          </div>
+          <h2 class="card-title">Rising Tensions in the Strait of Hormuz</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Reports indicate another commercial vessel/tanker was targeted in the Strait of Hormuz.</p>
+            </div>
+            <div class="info-row">
+              <span class="info-label">U.S. Response</span>
+              <p class="info-text">The U.S. has deployed additional naval assets to the Middle East, arriving just as the USS <em>Abraham Lincoln</em> prepares to conclude a record-length deployment.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Maritime Alert</span>
+          <span>Persian Gulf</span>
+        </div>
+      </article>
+
+      <!-- Story 4 -->
+      <article class="news-card" data-category="geopolitics">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-geopolitics">🌐 Geopolitics</span>
+            <span class="card-meta-icon">⚖️ 🕊️</span>
+          </div>
+          <h2 class="card-title">Convicted Bosnian Serb Commander Ratko Mladić Dies at 84</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Ratko Mladić, the former Bosnian Serb military commander dubbed the "Butcher of Bosnia"—convicted by an international tribunal of genocide and crimes against humanity for the 1995 Srebrenica massacre and siege of Sarajevo—has died at age 84.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Obituary / World</span>
+          <span>ICTY Tribunal</span>
+        </div>
+      </article>
+
+      <!-- Story 5 -->
+      <article class="news-card" data-category="climate">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-climate">🌪️ Climate & Natural</span>
+            <span class="card-meta-icon">🏔️ 🌊</span>
+          </div>
+          <h2 class="card-title">Deadly Flash Floods in Nepal and Tibet Leave Hundreds Dead and Missing</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Current Toll</span>
+              <p class="info-text">The confirmed death toll has climbed to nearly <strong>400</strong>, with over <strong>1,300 people</strong> still unaccounted for after devastating flash floods and mudslides swept through border villages.</p>
+            </div>
+            <div class="alert-box alert-danger">
+              ⚠️ <strong>Immediate Risk:</strong> Rescue and disaster-relief operations are racing against time as geologists warn that an unstable, debris-dammed flood lake could burst and cause secondary inundations.
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Disaster Watch</span>
+          <span>Nepal / Tibet Region</span>
+        </div>
+      </article>
+
+      <!-- Story 6 -->
+      <article class="news-card" data-category="climate">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-climate">🌪️ Climate & Natural</span>
+            <span class="card-meta-icon">🌀 ⛈️</span>
+          </div>
+          <h2 class="card-title">Tropical Storm Dolly Forms in the Atlantic</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">The National Hurricane Center (NHC) announced the formation of Tropical Storm Dolly in the Atlantic basin, tracking its development and potential path.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 National Hurricane Center / Google News</span>
+          <span>Atlantic Basin</span>
+        </div>
+      </article>
+
+      <!-- Story 7 -->
+      <article class="news-card" data-category="legal">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-legal">🏛️ Politics & Legal</span>
+            <span class="card-meta-icon">⚖️ 🏛️</span>
+          </div>
+          <h2 class="card-title">Jury Deliberations Begin in Lindsay Clancy Murder Trial</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Closing arguments have concluded in the five-week Massachusetts trial of Lindsay Clancy, who is charged in the 2023 deaths of her three young children.</p>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Key Issues</span>
+              <p class="info-text">The jury is weighing conflicting testimony between defense arguments of severe postpartum psychosis versus the prosecution's claims of criminal awareness and premeditation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Trial Coverage</span>
+          <span>Massachusetts Court</span>
+        </div>
+      </article>
+
+      <!-- Story 8 -->
+      <article class="news-card" data-category="legal">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-legal">🏛️ Politics & Legal</span>
+            <span class="card-meta-icon">🏛️ 🎭</span>
+          </div>
+          <h2 class="card-title">Emergency Hearing Over Kennedy Center Demolition & Renaming Threats</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">A federal court hearing is underway concerning the Kennedy Center after board officials and administration representatives warned the iconic cultural landmark could face demolition unless extensive renovations and structural changes (including disputes over name recognition) are approved.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Federal Court</span>
+          <span>Washington D.C.</span>
+        </div>
+      </article>
+
+      <!-- Story 9 -->
+      <article class="news-card" data-category="legal">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-legal">🏛️ Politics & Legal</span>
+            <span class="card-meta-icon">🔒 ⚖️</span>
+          </div>
+          <h2 class="card-title">Disputed Release of Ex-ICE Officer in Texas</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">An ex-ICE agent indicted in Minnesota over the shooting of an immigrant was freed from custody by Texas authorities after a federal judge ruled against Minnesota's extradition petition.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Legal Brief</span>
+          <span>Texas / Minnesota</span>
+        </div>
+      </article>
+
+      <!-- Story 10 -->
+      <article class="news-card" data-category="legal">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-legal">🏛️ Politics & Legal</span>
+            <span class="card-meta-icon">✈️ ⚖️</span>
+          </div>
+          <h2 class="card-title">Andrew and Tristan Tate Appear in Miami Court Over UK Extradition</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Influencer Andrew Tate and his brother Tristan appeared in a Miami federal courtroom requesting bail as they fight extradition proceedings to the United Kingdom on criminal charges.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Extradition Case</span>
+          <span>Miami Federal Court</span>
+        </div>
+      </article>
+
+      <!-- Story 11 -->
+      <article class="news-card" data-category="legal">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-legal">🏛️ Politics & Legal</span>
+            <span class="card-meta-icon">📢 🏛️</span>
+          </div>
+          <h2 class="card-title">Controversy Surrounding Ex-Staffer of Rep. Mike Collins (GA)</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Scrutiny has mounted following revelations that a former staff member for Georgia Republican Representative Mike Collins previously posted neo-Nazi and KKK imagery online, drawing criticism and political pressure from opponents.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Capitol Hill</span>
+          <span>US House / Georgia</span>
+        </div>
+      </article>
+
+      <!-- Story 12 -->
+      <article class="news-card" data-category="culture">
+        <div>
+          <div class="card-header">
+            <span class="badge badge-culture">🏺 Culture & Heritage</span>
+            <span class="card-meta-icon">🏺 🇪🇸</span>
+          </div>
+          <h2 class="card-title">Four-Minute Heist of Bronze Age Gold in Spain</h2>
+          <div class="card-body">
+            <div class="info-row">
+              <span class="info-label">Context</span>
+              <p class="info-text">Thieves executed a rapid, four-minute smash-and-grab raid at a Spanish museum, stealing priceless prehistoric gold artifacts from the famous <strong>Villena Treasure</strong>, one of Europe’s most significant Bronze Age archaeological hoards.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-source">📰 Google News • Archaeology</span>
+          <span>Villena Treasure / Spain</span>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Empty State Container -->
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">🔍</div>
+      <h3>No matching headlines found</h3>
+      <p>Try searching for a different keyword or select another category filter.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Global News Highlights • Executive Briefing Interface • Curated from Google News</p>
+    </footer>
+  </div>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+    const htmlElement = document.documentElement;
+
+    // Load theme preference or default to dark
+    const currentTheme = localStorage.getItem('news_theme') || 'dark';
+    if (currentTheme === 'light') {
+      htmlElement.setAttribute('data-theme', 'light');
+      themeIcon.textContent = '🌙';
+      themeText.textContent = 'Dark Mode';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = htmlElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        htmlElement.removeAttribute('data-theme');
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light Mode';
+        localStorage.setItem('news_theme', 'dark');
+      } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark Mode';
+        localStorage.setItem('news_theme', 'light');
+      }
+    });
+
+    // Search and Filter Logic
+    const searchInput = document.getElementById('searchInput');
+    const filterTabs = document.querySelectorAll('.tab-btn');
+    const newsCards = document.querySelectorAll('.news-card');
+    const emptyState = document.getElementById('emptyState');
+    const totalCountElem = document.getElementById('totalCount');
+
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function filterCards() {
+      let visibleCount = 0;
+
+      newsCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const cardText = card.textContent.toLowerCase();
+        const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+        const matchesSearch = !searchQuery || cardText.includes(searchQuery);
+
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+      }
+
+      totalCountElem.textContent = visibleCount;
+    }
+
+    // Tab clicks
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentCategory = tab.getAttribute('data-filter');
+        filterCards();
+      });
+    });
+
+    // Search input
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      filterCards();
+    });
+  </script>
+</body>
+</html>
