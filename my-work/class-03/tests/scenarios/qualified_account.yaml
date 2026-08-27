@@ -1,0 +1,22 @@
+company_name: Apex Industrial Systems
+industry: industrial_automation
+employee_count: 12000
+region: united_states
+buying_signals:
+  - plant_modernization
+  - new_ai_leadership
+evidence:
+  - claim: Apex Industrial Systems announced a $50M plant modernization initiative.
+    classification: verified_fact
+    source:
+      name: Apex Industrial Press Release
+      url: https://example.com/fixtures/apex-pr-2026
+      retrieved_at: 2026-08-15
+    excerpt: Apex Industrial Systems today announced a $50M capital investment to modernize plant operations across North American facilities.
+  - claim: Appointed new VP of Industrial AI and Automation.
+    classification: verified_fact
+    source:
+      name: Industry News Daily
+      url: https://example.com/fixtures/industry-news-apex
+      retrieved_at: 2026-08-18
+    excerpt: Dr. Jane Smith joins Apex Industrial as VP of Industrial AI and Automation.

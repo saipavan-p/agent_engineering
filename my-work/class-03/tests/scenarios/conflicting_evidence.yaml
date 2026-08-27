@@ -1,0 +1,21 @@
+company_name: Precision Dynamics AG
+industry: manufacturing
+employee_count: 7500
+region: europe
+buying_signals:
+  - plant_modernization
+evidence:
+  - claim: Precision Dynamics is actively expanding plant modernization investments across European facilities.
+    classification: conflict
+    source:
+      name: European Industry Review
+      url: https://example.com/fixtures/eir-precision-dynamics
+      retrieved_at: 2026-08-10
+    excerpt: Precision Dynamics announced a €30M investment into digital plant floor modernization.
+  - claim: Precision Dynamics has suspended all plant automation modernization programs due to restructuring.
+    classification: conflict
+    source:
+      name: Global Manufacturing Financial Wire
+      url: https://example.com/fixtures/financial-wire-precision-dynamics
+      retrieved_at: 2026-08-14
+    excerpt: Management announced the immediate suspension of plant automation programs under cost-reduction measures.
